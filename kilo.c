@@ -18,6 +18,8 @@ struct termios orig_termios;
 /*** terminal ***/
 
 void die(const char *s) {
+    write(STDOUT_FILENO, "\x1b[2J", 4); // clear the screen
+    write(STDOUT_FILENO, "\x1b[H", 3);  // reposition the cursor
     perror(s);
     exit(1);
 }
@@ -72,6 +74,8 @@ void editorProcessKeypress() {
 
     switch (c) {
         case CTRL_KEY('q'):
+            write(STDOUT_FILENO, "\x1b[2J", 4); // clear the screen
+            write(STDOUT_FILENO, "\x1b[H", 3);  // reposition the cursor
             exit(0);
             break;
     }
