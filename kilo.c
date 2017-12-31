@@ -13,7 +13,7 @@ void enableRawMode() {
     atexit(disableRawMode);
 
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ECHO);     // turn off echo
+    raw.c_lflag &= ~(ECHO | ICANON);     // turn off echo
 
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
