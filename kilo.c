@@ -736,6 +736,11 @@ void editorProcessKeypress() {
                 E.cx = E.row[E.cy].size;
             }
             break;
+
+        case CTRL_KEY('f'):
+            editorFind();
+            break;
+
         case BACKSPACE:
         case CTRL_KEY('h'):
         case DEL_KEY:
@@ -808,7 +813,7 @@ int main(int argc, char *argv[]) {
         editorOpen(argv[1]);
     }
 
-    editorSetStatusMesage("HELP: Ctrl-S = save | Ctrl-Q = quit");
+    editorSetStatusMesage("HELP: Ctrl-S = save | Ctrl-Q = quit | Ctrl-F = find");
 
     while (1) {
         editorRefreshScreen();
