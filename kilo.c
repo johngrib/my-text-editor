@@ -63,6 +63,10 @@ struct editorConfig {
 
 struct editorConfig E;
 
+/*** prototypes ***/
+
+void editorSetStatusMesage(const char *fmt, ...);
+
 /*** terminal ***/
 
 void clearScreen() {
