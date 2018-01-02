@@ -235,6 +235,15 @@ void editorUpdateSyntax(erow *row) {
     }
 }
 
+int editorSyntaxToColor(int hl) {
+    switch (hl) {
+        case HL_NUMBER:
+            return 31;
+        default:
+            return 37;
+    }
+}
+
 /*** row operations ***/
 
 int editorRowCxToRx(erow *row, int cx) {
